@@ -102,7 +102,7 @@ class Trigger(BaseCommand):
 
     def _stages_finished(self, response):
         for stage in response['stages']:
-            if stage['result'] not in self.pipeline.final_results:
+            if stage.get('result') not in self.pipeline.final_results:
                 return False
 
         return True
